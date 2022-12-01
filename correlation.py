@@ -9,8 +9,8 @@ def correlation(nr_pulses):
     if len(nr_pulses) == 0:
         sig = np.repeat([1., 0., 1., 0., 1., 0., 0., 1., 0., 1.], 128)
     else:
-        sig = np.repeat([int(nr_pulses[0]), int(nr_pulses[1]), int(nr_pulses[2]), int(nr_pulses[3]),int(nr_pulses[4]), 
-        int(nr_pulses[5]), int(nr_pulses[6]), int(nr_pulses[7]),int(nr_pulses[8]), int(nr_pulses[9])], 128)
+        pulses = [int(nr_pulses[i]) for i in range(10)]
+        sig = np.repeat(pulses, 128)
 
     sig_noise = sig + rng.standard_normal(len(sig))
     corr = signal.correlate(sig_noise, np.ones(128), mode='same') / 128
