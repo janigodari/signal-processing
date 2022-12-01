@@ -7,7 +7,8 @@ def correlation(nr_pulses):
     rng = np.random.default_rng()
 
     if len(nr_pulses) == 0:
-        sig = np.repeat([1., 0., 1., 0., 1., 0., 0., 1., 0., 1.], 128)
+        default_pattern = [1. if i % 2 == 0 else 0. for i in range(10)]
+        sig = np.repeat(default_pattern, 128)
     else:
         pulses = [int(nr_pulses[i]) for i in range(10)]
         sig = np.repeat(pulses, 128)
