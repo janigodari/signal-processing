@@ -71,9 +71,9 @@ while True:
 
         
     elif event == 'gen_correlation':
-        val_puls = [0,0,0,0,0,0,0,0,0,0]
+        val_puls = [0 for _ in range(10)]
         empty_arr = []
-        #print(event,values)
+        
         if(values[4] == True):
                co.correlation(empty_arr)
         else:
@@ -81,7 +81,7 @@ while True:
                 window['pulse_warning'].Update(visible=True)
             else:
                 nr_pulse = int(values['nr_pulses'])
-                #print(nr_pulse)
+                
                 for i in range(0,nr_pulse):
                     val_puls[i] = int(values['pl'+str(i+1)])
                 co.correlation(val_puls)        
